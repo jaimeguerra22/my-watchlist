@@ -1,19 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 <defs>
- <radialGradient id="iris"><stop stop-color="#ff3549"/><stop offset=".52" stop-color="#d60020"/><stop offset="1" stop-color="#65000f"/></radialGradient>
- <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <radialGradient id="iris"><stop stop-color="#ff6868"/><stop offset=".4" stop-color="#ed1730"/><stop offset=".78" stop-color="#9a001d"/><stop offset="1" stop-color="#35000a"/></radialGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <clipPath id="eye"><path d="M28 256Q256 60 484 256Q256 452 28 256Z"/></clipPath>
 </defs>
-<rect width="512" height="512" rx="112" fill="#080609"/>
-<circle cx="256" cy="256" r="224" fill="#170309" stroke="#8c1027" stroke-width="12"/>
-<circle cx="256" cy="256" r="190" fill="url(#iris)" stroke="#ff3048" stroke-width="7" filter="url(#glow)"/>
-<circle cx="256" cy="256" r="128" fill="none" stroke="#680014" stroke-width="8"/>
-<circle cx="256" cy="256" r="83" fill="#080609" stroke="#ff263e" stroke-width="9"/>
-<g fill="#080609">
- <path d="M256 128c-34 35-35 69 0 94 35-25 34-59 0-94Z"/>
- <path d="M145 320c49 8 77-11 79-55-42-18-69 3-79 55Z"/>
- <path d="M367 320c-49 8-77-11-79-55 42-18 69 3 79 55Z"/>
+<rect width="512" height="512" rx="100" fill="#080609"/>
+<path d="M20 256Q256 45 492 256Q256 467 20 256Z" fill="#1a060b" stroke="#6e1425" stroke-width="10"/>
+<g clip-path="url(#eye)">
+ <rect width="512" height="512" fill="#1a060b"/>
+ <ellipse cx="256" cy="256" rx="178" ry="178" fill="url(#iris)" stroke="#ff3b51" stroke-width="9" filter="url(#glow)"/>
+ <circle cx="256" cy="256" r="137" fill="none" stroke="#53000e" stroke-width="8"/>
+ <g fill="#070609">
+  <path d="M256 105C220 150 222 187 256 205C290 187 292 150 256 105Z"/>
+  <path d="M122 316C174 321 205 299 197 254C153 235 121 265 122 316Z"/>
+  <path d="M390 316C338 321 307 299 315 254C359 235 391 265 390 316Z"/>
+ </g>
+ <circle cx="256" cy="256" r="65" fill="#050407" stroke="#ff334a" stroke-width="8"/>
+ <circle cx="256" cy="256" r="24" fill="#ff1a35"/>
 </g>
-<circle cx="256" cy="256" r="31" fill="#050407" stroke="#ff233c" stroke-width="7"/>
-<circle cx="256" cy="256" r="12" fill="#ff3048"/>
-<path d="M74 256a182 182 0 0 1 364 0" fill="none" stroke="#ff5366" stroke-width="5" opacity=".8"/>
+<path d="M20 256Q256 45 492 256" fill="none" stroke="#070609" stroke-width="42"/>
+<path d="M20 256Q256 467 492 256" fill="none" stroke="#070609" stroke-width="34"/>
+<path d="M20 256Q256 45 492 256" fill="none" stroke="#ff344c" stroke-width="7"/>
 </svg>
