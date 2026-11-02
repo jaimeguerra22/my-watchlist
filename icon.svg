@@ -1,3 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-<defs><radialGradient id="g"><stop stop-color="#ff4b4b"/><stop offset=".58" stop-color="#c40016"/><stop offset="1" stop-color="#250008"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="12" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-<rect width="512" height="512" rx="112" fill="#080609"/><path d="M45 256Q256 65 467 256Q256 447 45 256Z" fill="#170308" stroke="#8c0015" stroke-width="15"/><path d="M75 256Q256 91 437 256Q256 421 75 256Z" fill="url(#g)" filter="url(#glow)"/><circle cx="256" cy="256" r="105" fill="#090609" stroke="#ff242e" stroke-width="10"/><circle cx="256" cy="256" r="32" fill="#e90020"/><g fill="#080609"><path d="M256 151q-35 45 0 76 35-31 0-76Z"/><path d="M165 309q56 3 65-42-44-20-65 42Z"/><path d="M347 309q-56 3-65-42 44-20 65 42Z"/></g><circle cx="256" cy="256" r="15" fill="#ff182b"/><path d="M40 256Q256 28 472 256" fill="none" stroke="#ff303d" stroke-width="8" opacity=".8"/></svg>
+<defs>
+ <radialGradient id="iris"><stop stop-color="#ff3549"/><stop offset=".52" stop-color="#d60020"/><stop offset="1" stop-color="#65000f"/></radialGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="10" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<rect width="512" height="512" rx="112" fill="#080609"/>
+<circle cx="256" cy="256" r="224" fill="#170309" stroke="#8c1027" stroke-width="12"/>
+<circle cx="256" cy="256" r="190" fill="url(#iris)" stroke="#ff3048" stroke-width="7" filter="url(#glow)"/>
+<circle cx="256" cy="256" r="128" fill="none" stroke="#680014" stroke-width="8"/>
+<circle cx="256" cy="256" r="83" fill="#080609" stroke="#ff263e" stroke-width="9"/>
+<g fill="#080609">
+ <path d="M256 128c-34 35-35 69 0 94 35-25 34-59 0-94Z"/>
+ <path d="M145 320c49 8 77-11 79-55-42-18-69 3-79 55Z"/>
+ <path d="M367 320c-49 8-77-11-79-55 42-18 69 3 79 55Z"/>
+</g>
+<circle cx="256" cy="256" r="31" fill="#050407" stroke="#ff233c" stroke-width="7"/>
+<circle cx="256" cy="256" r="12" fill="#ff3048"/>
+<path d="M74 256a182 182 0 0 1 364 0" fill="none" stroke="#ff5366" stroke-width="5" opacity=".8"/>
+</svg>
