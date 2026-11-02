@@ -74,12 +74,46 @@ header .stats{gap:5px}header .stat{padding:7px 8px;font-size:9px}header .stat b{
 }
 .heroCover{min-height:610px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:0;padding:45px 30px 35px;background:#070609 url('warwatch-cover.svg') center/cover no-repeat;border:1px solid #6b1225;isolation:isolate}.heroCover:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#05040738 0%,#05040730 42%,#050407bd 100%);z-index:-1}.coverEye{margin-bottom:12px}.coverEye img{width:92px;height:92px;border-radius:23px;box-shadow:0 0 22px #ff183f,0 0 65px #a0002c}.heroCover .heroCopy{max-width:900px}.heroCover .heroCopy h2{font-size:clamp(58px,9vw,112px);letter-spacing:-5px;font-weight:1000;font-style:italic;color:#fff;text-shadow:0 5px 30px #000,0 0 22px #ff142d88;margin:5px 0 0}.coverSlogan{font-size:clamp(13px,2vw,22px)!important;letter-spacing:8px;font-weight:900;color:#fff!important;margin:12px 0 0!important}.coverDesc{font-size:14px!important;color:#f2dce0!important;margin:12px 0 0!important}.coverFeatures{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:24px;width:min(900px,100%);margin:50px auto 35px}.coverFeatures div{display:flex;flex-direction:column;align-items:center;gap:4px;color:#fff;font-size:12px;text-shadow:0 2px 8px #000}.coverFeatures i{font-style:normal;font-size:34px;color:#fff;margin-bottom:5px}.coverFeatures b{font-size:12px}.coverFeatures span{font-size:11px;color:#f4dfe3}.enterWarwatch{min-width:290px;padding:15px 25px;border-radius:50px;border:2px solid #ff243d;background:#19060cdd;box-shadow:0 0 18px #ff1b36aa,inset 0 0 20px #ff1b3622;font-size:16px;font-weight:850}.enterWarwatch span{font-size:23px;margin-left:14px}@media(max-width:600px){.heroCover{min-height:calc(100svh - 112px);padding:25px 14px 24px;background-position:58% center;border-radius:16px}.coverEye img{width:66px;height:66px;border-radius:17px}.heroCover .heroCopy h2{font-size:clamp(42px,13vw,64px);letter-spacing:-3px}.coverSlogan{font-size:11px!important;letter-spacing:3px;margin-top:9px!important}.coverDesc{font-size:11px!important;max-width:290px;margin-top:9px!important}.coverFeatures{grid-template-columns:repeat(3,minmax(0,1fr));gap:15px 7px;margin:33px auto 25px}.coverFeatures div{font-size:10px}.coverFeatures i{font-size:25px;margin-bottom:2px}.coverFeatures b{font-size:10px}.coverFeatures span{font-size:9px}.enterWarwatch{min-width:235px;padding:12px 18px;font-size:14px}}
 .splash{position:fixed;inset:0;z-index:1000;display:flex;align-items:center;justify-content:center;background:#050305;overflow:hidden}.splashFrame{position:relative;width:min(100vw,150vh);line-height:0;max-height:100dvh}.splashFrame img{display:block;width:100%;height:auto;max-height:100dvh;object-fit:contain}.splashEnter{position:absolute;left:36.5%;top:79.3%;width:27%;height:8%;padding:0;border:0;border-radius:50px;background:transparent;box-shadow:none;cursor:pointer}.splashEnter:hover{background:#ff263e12;box-shadow:0 0 25px #ff263e55;transform:none}.splashEnter:focus-visible{outline:3px solid #fff;outline-offset:3px}.splash.hidden{display:none}@media(max-width:600px){.splashFrame{width:100vw;max-height:none}.splashFrame img{width:100%;height:auto;max-height:none}.splashEnter{left:36%;top:79%;width:28%;height:8%}}
+
+/* Integrated WARWATCH identity and cinematic home */
+header h1:before{width:54px;height:54px;border-radius:50%;background:url('icon.svg') center/cover;box-shadow:0 0 0 2px #ff243844,0 0 24px #ff173b99}
+header h1 span{font-size:29px;font-weight:1000;font-style:italic;letter-spacing:-1.8px}
+.heroCover{position:relative;min-height:390px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;gap:0;padding:34px 38px;overflow:hidden;background:#080609 url('warwatch-cover.svg') center 48%/cover no-repeat;border:1px solid #6b1225;box-shadow:0 20px 60px #0008}
+.heroCover:after{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(90deg,#070609f2 0%,#080609d9 40%,#08060936 100%),linear-gradient(0deg,#080609c9 0%,transparent 65%);pointer-events:none}
+.heroArtwork{position:absolute;inset:0;z-index:0;background:radial-gradient(circle at 77% 45%,#ff132d25,transparent 27%)}
+.heroIdentity,.heroCover .coverDesc,.heroFeatureStrip,.heroCover .enterWarwatch{position:relative;z-index:1}
+.heroIdentity{display:flex;align-items:center;gap:18px}
+.heroIdentity img{width:92px;height:92px;border-radius:50%;border:2px solid #ff334c;box-shadow:0 0 22px #ff183f99,0 0 55px #a0002c66}
+.heroKicker{font-size:10px;font-weight:900;letter-spacing:4px;color:#ff7788}
+.heroIdentity h2{font-size:clamp(48px,7vw,82px);line-height:.95;letter-spacing:-4px;font-style:italic;font-weight:1000;margin:7px 0 4px;color:#fff;text-shadow:0 4px 20px #000}
+.heroIdentity h2 span{color:#ff263e}
+.heroIdentity p{font-size:13px;letter-spacing:5px;text-transform:uppercase;font-weight:850;margin:8px 0 0;color:#f6dce1}
+.heroCover .coverDesc{max-width:550px;font-size:14px;line-height:1.6;color:#f1dce0;margin:22px 0 0}
+.heroFeatureStrip{display:flex;gap:22px;flex-wrap:wrap;margin:24px 0;color:#ff6578;font-size:10px;font-weight:950;letter-spacing:1.5px}
+.heroCover .enterWarwatch{min-width:220px;padding:12px 19px;border-radius:30px;border:1px solid #ff4358;background:linear-gradient(100deg,#b90024eF,#280711ee);box-shadow:0 0 24px #ff1b3644;font-size:13px}
+.heroCover .enterWarwatch span{font-size:19px;margin-left:12px}
+.quickActions button{background:linear-gradient(145deg,#1d1016,#0d090c);border-color:#54202d}
+.quickActions i{color:#ff344b}
+@media(max-width:600px){
+ header h1:before{width:43px;height:43px}
+ header h1 span{font-size:23px}
+ .heroCover{min-height:340px;padding:23px 17px;background-position:61% center;border-radius:17px}
+ .heroCover:after{background:linear-gradient(90deg,#070609ee 0%,#080609b8 68%,#08060962 100%),linear-gradient(0deg,#080609df 0%,transparent 75%)}
+ .heroIdentity{gap:12px}
+ .heroIdentity img{width:65px;height:65px;border-radius:50%}
+ .heroKicker{font-size:8px;letter-spacing:2px}
+ .heroIdentity h2{font-size:clamp(39px,12vw,55px);letter-spacing:-2.5px}
+ .heroIdentity p{font-size:9px;letter-spacing:2px}
+ .heroCover .coverDesc{font-size:11px;line-height:1.5;max-width:310px;margin-top:17px}
+ .heroFeatureStrip{gap:10px 14px;font-size:8px;margin:19px 0}
+ .heroCover .enterWarwatch{min-width:195px;padding:11px 16px;font-size:12px}
+}
 </style></head><body>
-<section id="splash" class="splash" aria-label="Bienvenido a WARWATCH"><div class="splashFrame"><img src="warwatch-cover.webp" alt="WARWATCH: tu base de anime y series"><button id="enterWarwatch" class="splashEnter" aria-label="Entrar a WARWATCH" title="Entrar a WARWATCH"></button></div></section>
+
 <header><div><h1><span>WARWATCH</span> ✦</h1><p>Tu universo de anime y series. Sigue cada episodio. Domina tu historia.</p></div><div class="stats"><div class="stat"><b id="countTitles">0</b>títulos</div><div class="stat"><b id="countEpisodes">0</b>vistos</div></div></header>
 <main class="wrap">
 <nav class="tabs appNav" aria-label="Navegación principal"><div class="navBrand"><img src="icon.svg" alt=""><span>WAR<span>WATCH</span></span></div><button class="active" data-view="home"><i>⌂</i><span>Inicio</span></button><button data-view="calendar"><i>▦</i><span>Calendario</span></button><button data-view="notices"><i>◷</i><span>Avisos</span><b id="noticeCount"></b></button><button data-view="favorites"><i>☆</i><span>Favoritos</span></button><button data-view="folders"><i>▤</i><span>Carpetas</span></button><button data-view="statistics"><i>▥</i><span>Estadísticas</span></button><div class="navFoot">TU UNIVERSO · TU PROGRESO</div></nav>
-<section class="hero heroCover"><div class="coverEye"><img src="icon.svg" alt=""></div><div class="heroCopy"><h2>WARWATCH</h2><p class="coverSlogan">TU BASE DE ANIME Y SERIES</p><p class="coverDesc">Organiza tu biblioteca. Sigue tu progreso. No te pierdas ningún estreno.</p></div><div class="coverFeatures"><div><i>▣</i><b>Organiza</b><span>tu biblioteca</span></div><div><i>▶</i><b>Sigue tu</b><span>progreso</span></div><div><i>▥</i><b>Analiza</b><span>tus estadísticas</span></div><div><i>▦</i><b>No te pierdas</b><span>ningún estreno</span></div><div><i>⇧</i><b>Copias de seguridad</b><span>de tus datos</span></div></div><button class="enterWarwatch" id="enterApp">Entrar a WARWATCH <span>→</span></button></section>
+<section class="hero heroCover"><div class="heroArtwork"></div><div class="heroIdentity"><img src="icon.svg" alt="Sharingan WARWATCH"><div><span class="heroKicker">TU UNIVERSO · TU PROGRESO</span><h2>WAR<span>WATCH</span></h2><p>Tu base de anime y series</p></div></div><p class="coverDesc">Cada episodio cuenta. Organiza tu biblioteca, continúa donde lo dejaste y controla todos tus estrenos.</p><div class="heroFeatureStrip"><span>◈ BIBLIOTECA</span><span>▶ PROGRESO</span><span>✦ ESTRENOS</span><span>▤ ESTADÍSTICAS</span></div><button class="enterWarwatch" id="enterApp">Explorar mi universo <span>→</span></button></section>
 <div class="quickActions"><button data-view="home"><i>▣</i><b>Tu biblioteca</b><small>Todo organizado</small></button><button data-view="favorites"><i>▶</i><b>Tu progreso</b><small>Sigue donde lo dejaste</small></button><button data-view="statistics"><i>▥</i><b>Estadísticas</b><small>Analiza tus avances</small></button><button data-view="calendar"><i>▦</i><b>Estrenos</b><small>Que no se te escape ninguno</small></button><button id="exportShortcut"><i>⇧</i><b>Copias de seguridad</b><small>Tus datos a salvo</small></button></div>
 <div class="dashboardStats"><div class="dashStat"><i>▣</i><b id="dashTitles">0</b><span>Títulos</span></div><div class="dashStat"><i>▶</i><b id="dashEpisodes">0</b><span>Episodios vistos</span></div><div class="dashStat"><i>♥</i><b id="dashFavorites">0</b><span>Favoritos</span></div><div class="dashStat"><i>◷</i><b id="dashProgress">0%</b><span>Progreso global</span></div></div><div id="view-home" class="view active">
 <section><div class="topline"><div><span class="eyebrow">A UN CLIC DE VOLVER</span><h2>▶ Seguir viendo</h2></div></div><div id="continueRail" class="rail"></div></section>
@@ -270,6 +304,6 @@ $('#filterText').addEventListener('input',renderAll);$('#filterStatus').addEvent
 $('#exportShortcut').addEventListener('click',exportBackup);$('#enterApp').addEventListener('click',()=>$('#libraryPanel').scrollIntoView({behavior:'smooth',block:'start'}));$('#exportBtn').addEventListener('click',exportBackup);$('#importBtn').addEventListener('click',()=>$('#importFile').click());$('#importFile').addEventListener('change',e=>importBackup(e.target.files[0]));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
 window.addEventListener('storage',e=>{if(e.key===KEY){items=read(KEY,[]);items.forEach(normalize);renderAll()}if(e.key===ACT)activity=read(ACT,[]);});
-$('#enterWarwatch').addEventListener('click',()=>$('#splash').classList.add('hidden'));renderAll();localStorage.setItem(KEY,JSON.stringify(items));
+renderAll();localStorage.setItem(KEY,JSON.stringify(items));
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 </script></body></html>
