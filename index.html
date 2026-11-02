@@ -145,7 +145,7 @@ function renderV2(){
 }
 function removeFromCollection(cid,id){const col=collections.find(x=>x.id===cid);if(col){col.items=col.items.filter(x=>x!==id);persistCollections()}}
 function discoverSearch(){const q=document.getElementById('discoverQuery').value.trim();if(!q)return;document.getElementById('query').value=q;document.getElementById('kind').value=document.getElementById('discoverKind').value;search().then(()=>{document.getElementById('discoverResults').innerHTML=document.getElementById('results').innerHTML;document.getElementById('discoverMsg').textContent=document.getElementById('msg').textContent})}
-document.addEventListener('click',function(event){const opener=event.target.closest('[data-open-item]');if(opener){openFiche(opener.getAttribute('data-open-item'))}});document.addEventListener('keydown',function(event){if((event.key==='Enter'||event.key===' ')&&event.target.matches('[data-open-item]')){event.preventDefault();openFiche(event.target.getAttribute('data-open-item'))}});\nfunction openFiche(id){
+document.addEventListener('click',function(event){const opener=event.target.closest('[data-open-item]');if(opener){openFiche(opener.getAttribute('data-open-item'))}});document.addEventListener('keydown',function(event){if((event.key==='Enter'||event.key===' ')&&event.target.matches('[data-open-item]')){event.preventDefault();openFiche(event.target.getAttribute('data-open-item'))}});function openFiche(id){
  const x=items.find(a=>String(a.id)===String(id));if(!x)return;ensureSeasons(x);
  const meta=[x.year,x.statusText,x.network,x.kind].filter(Boolean).map(esc).join(' · ');
  const genres=(x.genres||[]).map(g=>'<span class="genre">'+esc(g)+'</span>').join('');
