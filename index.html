@@ -382,8 +382,9 @@ async function wwLoadCloud(user){
   const {data,error}=await wwSupabase.from('warwatch_library').select('data').eq('user_id',user.id).maybeSingle();
   if(error)throw error;
   if(data&&data.data){wwStore(wwMergeData(data.data));}
-  else {await wwSaveCloud();}
-  wwCloudReady=true;wwUpdateAccount();
+  wwCloudReady=true;
+  await wwSaveCloud();
+  wwUpdateAccount();
 }
 async function wwInitAuth(){
   const btn=document.querySelector('#accountButton');
