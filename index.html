@@ -30,7 +30,23 @@ function openFiche(id){
  const genres=(x.genres||[]).map(g=>'<span class="genre">'+esc(g)+'</span>').join('');
  const seasons=x.kind==='SERIE'?'<h3>Temporadas</h3>'+x.seasons.map(z=>'<div class="seasonrow"><span>Temporada '+z.season+'</span><b>'+z.progress+'/'+z.total+' episodios</b></div>').join(''):'';
  $('#ficheContent').innerHTML='<div class="fiche-hero"><img src="'+esc(x.cover||'')+'" onerror="this.style.visibility=\'hidden\'"><div><button class="fiche-close" onclick="closeFiche()">✕</button><div class="fiche-meta">'+meta+'</div><h2>'+esc(x.title)+'</h2><div class="fiche-meta">★ '+(x.rating?esc(x.rating)+'/10':'Sin valorar')+' · '+(x.progress||0)+'/'+(x.total||'?')+' episodios</div><div class="genres">'+genres+'</div></div></div><div class="fiche-body"><h3>Sinopsis</h3><p>'+(x.description?esc(x.description):'Sin sinopsis disponible. Puedes recuperarla desde la biblioteca.')+'</p>'+seasons+(x.note?'<h3>Tus notas</h3><p>'+esc(x.note)+'</p>':'')+'</div>';
- $('#ficheModal').classList.add('open'); document.body.style.overflow='hidden';
+ $('#ficheModal').classList.add('open'); document.body.style.overflow='hidden'; loadCast(x);
+}
+async function loadCast(x){
+ const body=document.querySelector('.fiche-body');if(!body)return;
+ let box=document.getElementById('ficheCast');if(!box){box=document.createElement('div');box.id='ficheCast';body.appendChild(box)}
+ box.innerHTML='<h3>Reparto principal</h3><p class="muted">Cargando…</p>';
+ try{
+  let names=[];
+  if(x.kind==='SERIE'){
+   const id=String(x.id).replace(/^s/,'');const r=await fetch('https://api.tvmaze.com/shows/'+id+'/cast');if(!r.ok)throw Error();
+   const data=await r.json();names=data.slice(0,8).map(v=>v.person?.name+(v.character?.name?' — '+v.character.name:'')).filter(Boolean);
+  }else{
+   const id=Number(String(x.id).replace(/^a/,''));const r=await fetch('https://graphql.anilist.co',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({query:'query($id:Int){Media(id:$id,type:ANIME){characters(perPage:8,sort:ROLE){edges{node{name{full}}role}}}}',variables:{id}})});if(!r.ok)throw Error();
+   const data=await r.json();names=(data.data.Media.characters.edges||[]).map(v=>v.node.name.full).filter(Boolean);
+  }
+  box.innerHTML='<h3>Reparto principal</h3><p>'+ (names.length?names.map(esc).join(' · '):'No hay reparto disponible.')+'</p>';
+ }catch(e){box.innerHTML='<h3>Reparto principal</h3><p class="muted">No se ha podido cargar el reparto.</p>'}
 }
 function closeFiche(){ $('#ficheModal').classList.remove('open'); document.body.style.overflow=''; }
 function toggleSynopsis(id){const x=items.find(a=>a.id===id);if(x){x.synopsisExpanded=!x.synopsisExpanded;save()}}
