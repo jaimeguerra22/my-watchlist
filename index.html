@@ -141,9 +141,9 @@ header h1 span{font-size:30px;font-weight:1000;font-style:italic;letter-spacing:
  .heroFeatureStrip{gap:9px 13px;font-size:8px;margin:14px 0}
  .heroCover .enterWarwatch{min-width:190px}
 }
-</style></head><body>
+</style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js"></script></head><body>
 
-<header><div><h1><span>WARWATCH</span> ✦</h1><p>Tu universo de anime y series. Sigue cada episodio. Domina tu historia.</p></div><div class="stats"><div class="stat"><b id="countTitles">0</b>títulos</div><div class="stat"><b id="countEpisodes">0</b>vistos</div></div></header>
+<header><div><h1><span>WARWATCH</span> ✦</h1><p>Tu universo de anime y series. Sigue cada episodio. Domina tu historia.</p></div><div style="display:flex;align-items:center;gap:12px"><div class="stats"><div class="stat"><b id="countTitles">0</b>títulos</div><div class="stat"><b id="countEpisodes">0</b>vistos</div></div><button class="ghost" id="accountButton" type="button">👤 Entrar</button></div></header>
 <main class="wrap">
 <nav class="tabs appNav" aria-label="Navegación principal"><div class="navBrand"><img src="icon.svg" alt=""><span>WAR<span>WATCH</span></span></div><button class="active" data-view="home"><i>⌂</i><span>Inicio</span></button><button data-view="calendar"><i>▦</i><span>Calendario</span></button><button data-view="notices"><i>◷</i><span>Avisos</span><b id="noticeCount"></b></button><button data-view="favorites"><i>☆</i><span>Favoritos</span></button><button data-view="folders"><i>▤</i><span>Carpetas</span></button><button data-view="statistics"><i>▥</i><span>Estadísticas</span></button><div class="navFoot">TU UNIVERSO · TU PROGRESO</div></nav>
 <section class="hero heroCover"><div class="heroArtwork"></div><div class="heroIdentity"><img src="icon.svg" alt="Sharingan WARWATCH"><div><span class="heroKicker">TU UNIVERSO · TU PROGRESO</span><h2>WAR<span>WATCH</span></h2><p>Tu base de anime y series</p></div></div><p class="coverDesc">Cada episodio cuenta. Organiza tu biblioteca, continúa donde lo dejaste y controla todos tus estrenos.</p><div class="heroFeatureStrip"><span>◈ BIBLIOTECA</span><span>▶ PROGRESO</span><span>✦ ESTRENOS</span><span>▤ ESTADÍSTICAS</span></div><button class="enterWarwatch" id="enterApp">Explorar mi universo <span>→</span></button></section>
@@ -158,11 +158,12 @@ header h1 span{font-size:30px;font-weight:1000;font-style:italic;letter-spacing:
 <div id="view-calendar" class="view"><section class="panel"><div class="calendarToolbar"><div><span class="eyebrow">PRÓXIMOS ESTRENOS</span><h2 style="margin:5px 0 0">Calendario</h2><p class="muted">Episodios con fecha confirmada durante los próximos 30 días.</p></div><button class="ghost" id="refreshCalendar">↻ Actualizar</button></div><div id="calendarContent"><div class="empty">Abre esta pestaña para consultar los próximos episodios.</div></div></section></div><div id="view-notices" class="view"><section class="panel"><div class="calendarToolbar"><div><span class="eyebrow">RECORDATORIOS</span><h2 style="margin:5px 0 0">Próximos estrenos</h2><p class="muted">WARWATCH te mantiene al día con los estrenos de los próximos 7 días.</p></div><button class="ghost" id="refreshNotices">↻ Revisar</button></div><div id="noticeContent"><div class="empty">Abre esta pestaña para revisar tus avisos.</div></div></section></div><div id="view-favorites" class="view"><section class="panel"><span class="eyebrow">TUS IMPRESCINDIBLES</span><h2>♥ Favoritos</h2><div id="favoritesGrid" class="library"></div></section></div>
 <div id="view-folders" class="view"><section class="panel"><span class="eyebrow">ORDENA TU BIBLIOTECA</span><h2>Carpetas</h2><div class="folderRow"><input id="folderName" placeholder="Nombre de carpeta"><button id="createFolder">＋ Crear carpeta</button></div><div id="folderChips" class="folderRow"></div><div id="folderGrid" class="library"></div></section></div>
 <div id="view-statistics" class="view"><section class="panel"><span class="eyebrow">TU ACTIVIDAD</span><h2>Estadísticas</h2><div id="statisticsContent"></div></section></div>
-<section class="panel"><div class="toolbar"><button class="ghost" id="exportBtn">Exportar copia</button><button class="ghost" id="importBtn">Importar copia</button><input id="importFile" type="file" accept="application/json" hidden></div><p class="muted">Tu biblioteca se guarda en este navegador. Exporta una copia si quieres trasladarla a otro dispositivo.</p></section>
+<section class="panel"><div class="toolbar"><button class="ghost" id="exportBtn">Exportar copia</button><button class="ghost" id="importBtn">Importar copia</button><input id="importFile" type="file" accept="application/json" hidden></div><p class="muted">Como invitado, tu biblioteca se guarda en este navegador. Inicia sesión para sincronizarla entre dispositivos. Exporta una copia como respaldo.</p></section>
 </main>
+<div id="authBackdrop" class="backdrop" style="z-index:120;display:none"><section class="modal" style="width:min(440px,100%);padding:24px"><button class="close" id="authClose" type="button">✕</button><span class="eyebrow">WARWATCH ID</span><h2 style="margin:10px 0">Tu universo, en todas partes</h2><p class="muted">Entra con tu cuenta para sincronizar tu biblioteca. También puedes seguir como invitado.</p><form id="authForm" style="display:grid;gap:11px;margin-top:18px"><label class="muted">Correo electrónico<input id="authEmail" type="email" autocomplete="email" required style="display:block;width:100%;margin-top:6px"></label><label class="muted">Contraseña<input id="authPassword" type="password" autocomplete="current-password" minlength="8" required style="display:block;width:100%;margin-top:6px"></label><button id="authSubmit" type="submit">Iniciar sesión</button><button class="ghost" id="authToggle" type="button">¿No tienes cuenta? Crear cuenta</button></form><p id="authMessage" class="notice" aria-live="polite"></p><button class="ghost" id="guestContinue" type="button" style="width:100%;margin-top:8px">Continuar como invitado</button></section></div>
 <div id="modal" class="backdrop"><section class="modal" role="dialog" aria-modal="true"><div id="modalContent"></div></section></div>
 <script>
-'use strict';
+'use strict';\n
 const $=s=>document.querySelector(s), KEY='mw-items', ACT='mw-activity', FOLD='mw-folders', HIS='mw-history';
 let items=read(KEY,[]), activity=read(ACT,[]), folders=read(FOLD,[]), history=read(HIS,[]), activeFolder='';
 function read(k,fallback){try{const v=JSON.parse(localStorage.getItem(k));return Array.isArray(v)?v:fallback}catch{return fallback}}
@@ -337,6 +338,84 @@ $('#filterText').addEventListener('input',renderAll);$('#filterStatus').addEvent
 $('#exportShortcut').addEventListener('click',exportBackup);$('#enterApp').addEventListener('click',()=>$('#libraryPanel').scrollIntoView({behavior:'smooth',block:'start'}));$('#exportBtn').addEventListener('click',exportBackup);$('#importBtn').addEventListener('click',()=>$('#importFile').click());$('#importFile').addEventListener('change',e=>importBackup(e.target.files[0]));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
 window.addEventListener('storage',e=>{if(e.key===KEY){items=read(KEY,[]);items.forEach(normalize);renderAll()}if(e.key===ACT)activity=read(ACT,[]);});
-renderAll();localStorage.setItem(KEY,JSON.stringify(items));
+
+/* WARWATCH cloud account: guest-first, local data remains the source until a successful merge */
+const WW_SUPABASE_URL = window.WARWATCH_SUPABASE_URL || '';
+const WW_SUPABASE_ANON_KEY = window.WARWATCH_SUPABASE_ANON_KEY || '';
+let wwSupabase = null, wwUser = null, wwCloudReady = false, wwSyncTimer = null, wwAuthMode = 'login', wwSuppressStorage = false;
+const wwKeys = ['mw-items','mw-activity','mw-folders','mw-history'];
+function wwSnapshot(){return {items,activity,folders,history};}
+function wwMergeData(remote){
+  const byId = new Map((remote.items||[]).map(x=>[String(x.id),x]));
+  for(const local of items){
+    const id=String(local.id), old=byId.get(id);
+    if(!old){byId.set(id,local);continue;}
+    const merged={...old,...local};
+    const oldP=Number(old.progress)||0, localP=Number(local.progress)||0;
+    if(oldP>localP){Object.assign(merged,old);['rating','notes','favorite','folder'].forEach(k=>{if(local[k]!==undefined)merged[k]=local[k]});}
+    const seasons=new Map();
+    [...(old.seasons||[]),...(local.seasons||[])].forEach(s=>{const n=Number(s.season)||1, prev=seasons.get(n);seasons.set(n,prev?{...prev,...s,progress:Math.max(Number(prev.progress)||0,Number(s.progress)||0),total:Math.max(Number(prev.total)||0,Number(s.total)||0)}:s)});
+    if(seasons.size)merged.seasons=[...seasons.values()].sort((a,b)=>a.season-b.season);
+    byId.set(id,merged);
+  }
+  const unique=(a,b,key)=>{const m=new Map();[...(a||[]),...(b||[])].forEach(x=>m.set(key(x),x));return [...m.values()]};
+  return {items:[...byId.values()],activity:unique(remote.activity,activity,x=>(x.date||'')+'|'+(x.episodes||1)),folders:[...new Set([...(remote.folders||[]),...folders])],history:unique(remote.history,history,x=>(x.id||'')+'|'+(x.season||1)+'|'+(x.episode||1)+'|'+(x.date||''))};
+}
+function wwStore(data){
+  wwSuppressStorage=true;
+  try{items=data.items||[];activity=data.activity||[];folders=data.folders||[];history=data.history||[];items.forEach(normalize);
+    localStorage.setItem(KEY,JSON.stringify(items));localStorage.setItem(ACT,JSON.stringify(activity));localStorage.setItem(FOLD,JSON.stringify(folders));localStorage.setItem(HIS,JSON.stringify(history));renderAll();
+  }finally{wwSuppressStorage=false;}
+}
+function wwScheduleSync(){if(!wwUser||!wwCloudReady||!wwSupabase)return;clearTimeout(wwSyncTimer);wwSyncTimer=setTimeout(wwSaveCloud,1200);}
+async function wwSaveCloud(){
+  if(!wwUser||!wwCloudReady||!wwSupabase)return;
+  const {error}=await wwSupabase.from('warwatch_library').upsert({user_id:wwUser.id,data:wwSnapshot(),updated_at:new Date().toISOString()},{onConflict:'user_id'});
+  if(error)console.error('WARWATCH sync:',error.message);
+}
+function wwAuthMessage(msg){const el=document.querySelector('#authMessage');if(el)el.textContent=msg;}
+function wwOpenAuth(){document.querySelector('#authBackdrop').style.display='flex';wwAuthMessage('');}
+function wwCloseAuth(){document.querySelector('#authBackdrop').style.display='none';}
+function wwUpdateAccount(){const b=document.querySelector('#accountButton');if(!b)return;b.textContent=wwUser?'👤 '+(wwUser.email||'Mi cuenta')+' · Salir':'👤 Entrar';}
+async function wwLoadCloud(user){
+  wwCloudReady=false;
+  const {data,error}=await wwSupabase.from('warwatch_library').select('data').eq('user_id',user.id).maybeSingle();
+  if(error)throw error;
+  if(data&&data.data){wwStore(wwMergeData(data.data));}
+  else {await wwSaveCloud();}
+  wwCloudReady=true;wwUpdateAccount();
+}
+async function wwInitAuth(){
+  const btn=document.querySelector('#accountButton');
+  if(!WW_SUPABASE_URL||!WW_SUPABASE_ANON_KEY||!window.supabase?.createClient){
+    btn?.addEventListener('click',()=>{wwOpenAuth();wwAuthMessage('La conexión segura de cuentas aún necesita configurar el proyecto Supabase. Tu modo invitado sigue funcionando y tus datos permanecen guardados en este dispositivo.');});
+    document.querySelector('#authSubmit').disabled=true;
+    wwUpdateAccount();return;
+  }
+  wwSupabase=window.supabase.createClient(WW_SUPABASE_URL,WW_SUPABASE_ANON_KEY);
+  const {data:{session}}=await wwSupabase.auth.getSession();
+  if(session){wwUser=session.user;try{await wwLoadCloud(wwUser)}catch(e){wwAuthMessage('No se pudo sincronizar: '+e.message)}}
+  wwUpdateAccount();
+  wwSupabase.auth.onAuthStateChange(async(_event,session)=>{wwUser=session?.user||null;if(wwUser){try{await wwLoadCloud(wwUser);wwCloseAuth()}catch(e){wwAuthMessage('Error al cargar la nube: '+e.message)}}else{wwCloudReady=false}wwUpdateAccount()});
+  btn?.addEventListener('click',async()=>{if(wwUser){if(confirm('¿Quieres cerrar sesión? Tu biblioteca seguirá guardada en este dispositivo.'))await wwSupabase.auth.signOut()}else wwOpenAuth()});
+  document.querySelector('#authForm').addEventListener('submit',async e=>{
+    e.preventDefault();const email=document.querySelector('#authEmail').value.trim(),password=document.querySelector('#authPassword').value;
+    const submit=document.querySelector('#authSubmit');submit.disabled=true;wwAuthMessage('Conectando…');
+    try{
+      const result=wwAuthMode==='signup'?await wwSupabase.auth.signUp({email,password}):await wwSupabase.auth.signInWithPassword({email,password});
+      if(result.error)throw result.error;
+      if(wwAuthMode==='signup'&&!result.data.session)wwAuthMessage('Cuenta creada. Revisa tu correo para confirmar la dirección y después inicia sesión.');
+      else if(result.data.session){wwUser=result.data.user;await wwLoadCloud(wwUser);wwCloseAuth();}
+    }catch(err){wwAuthMessage(err.message||'No se pudo completar el acceso.')}finally{submit.disabled=false;}
+  });
+  document.querySelector('#authToggle').addEventListener('click',()=>{wwAuthMode=wwAuthMode==='login'?'signup':'login';document.querySelector('#authSubmit').textContent=wwAuthMode==='signup'?'Crear cuenta':'Iniciar sesión';document.querySelector('#authToggle').textContent=wwAuthMode==='signup'?'Ya tengo cuenta':'¿No tienes cuenta? Crear cuenta';document.querySelector('#authPassword').autocomplete=wwAuthMode==='signup'?'new-password':'current-password';wwAuthMessage('');});
+  document.querySelector('#authClose').addEventListener('click',wwCloseAuth);document.querySelector('#guestContinue').addEventListener('click',wwCloseAuth);
+  document.querySelector('#authBackdrop').addEventListener('click',e=>{if(e.target.id==='authBackdrop')wwCloseAuth()});
+}
+const wwOriginalSetItem=Storage.prototype.setItem;
+Storage.prototype.setItem=function(key,value){wwOriginalSetItem.call(this,key,value);if(this===localStorage&&wwKeys.includes(String(key))&&!wwSuppressStorage)wwScheduleSync();};
+document.addEventListener('DOMContentLoaded',()=>{});
+wwInitAuth().catch(e=>console.error('WARWATCH auth init:',e));
+\nrenderAll();localStorage.setItem(KEY,JSON.stringify(items));
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 </script></body></html>
