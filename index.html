@@ -160,6 +160,86 @@ button{background:linear-gradient(110deg,#4d80dc,#7868d9);color:#fff}button.ghos
 .library{grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:18px}.library .card{padding:11px;border-radius:17px}.library .cover{height:260px;border-radius:12px}.rail{grid-auto-columns:185px;gap:16px}.rail .cover{height:240px}.library .cardTitle{font-size:14px;min-height:38px}.card{transition:transform .18s,box-shadow .18s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 24px #5269a022}
 @media(max-width:1000px){.library{grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}.library .cover{height:225px}}
 @media(max-width:600px){header{background:transparent}header h1:before{width:42px;height:42px;border-radius:12px}header h1 span{font-size:23px}.appNav{background:#ffffffed;border-top:1px solid #dce4f8;box-shadow:0 -8px 25px #5269a018}.appNav button{color:#63708e}.appNav button.active,.appNav button:hover{background:#eef0ff;border-color:#e0e3fb}.appNav button i{color:#6d72ce}.heroCover{min-height:355px;padding:22px 16px;background-position:58% center;background-size:auto 100%;border-radius:17px}.heroCover:after{background:linear-gradient(90deg,#f7f9fff2 0%,#f4f7ffdc 65%,#f4f7ff80 100%),linear-gradient(0deg,#e8edff8a,transparent 75%)}.heroIdentity{gap:12px}.heroIdentity img{width:67px;height:67px;border-radius:17px}.heroIdentity h2{font-size:clamp(38px,11vw,52px);letter-spacing:-2px}.heroIdentity p{font-size:9px;letter-spacing:2px}.heroKicker{font-size:8px;letter-spacing:2px}.heroCover .coverDesc{font-size:11px;margin-top:14px}.heroFeatureStrip{gap:9px 13px;font-size:8px;margin:15px 0;color:#536bb6}.heroCover .enterWarwatch{min-width:190px}.quickActions button{background:linear-gradient(145deg,#fff,#f4f6ff)}.dashboardStats{background:linear-gradient(110deg,#fff,#f2f3ff)}.dashStat{border-color:#e1e7f6}.panel{background:#fff}.library{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.library .card{padding:8px}.library .cover{height:205px}.library .cardTitle{font-size:12px}.rail{grid-auto-columns:150px;gap:10px}.rail .cover{height:190px}.cardMeta{font-size:10px}.quickActions small{color:#7a849c}}
+
+/* WARWATCH 2.0 — manga TV / light blue-violet */
+:root{color-scheme:light;--bg:#f4f7ff;--panel:#fff;--panel2:#eef3ff;--line:#dce4f7;--txt:#24304d;--muted:#73809a;--red:#527cdb;--pink:#7665d6;--purple:#7665d6;--blue:#3985d2;--cyan:#796bd5}
+html,body{background:linear-gradient(135deg,#f8faff,#edf3ff 55%,#f5f0ff);color:#24304d}
+header h1:before{width:54px;height:54px;border-radius:15px;background:url('icon.svg') center/cover;box-shadow:0 5px 16px #667bd533}
+header h1 span{background:linear-gradient(90deg,#315dbd,#7968d9);background-clip:text;color:transparent;font-style:normal;text-shadow:none}
+header p{color:#77839d}
+.appNav{background:#fff;border-right:1px solid #dce4f8;box-shadow:8px 0 30px #5267a10c}
+.navBrand{border-bottom:1px solid #e5eaf8;color:#2a3b70;font-style:normal}
+.navBrand img{border-radius:14px;box-shadow:0 4px 12px #536cc533}
+.navBrand span span{color:#7667d6}
+.appNav button{color:#596581}
+.appNav button i{color:#6b79cb}
+.appNav button.active,.appNav button:hover{background:linear-gradient(100deg,#eaf0ff,#f0edff);border-color:#d8def8;color:#304d9b}
+.navFoot{color:#9aa5bd}
+.heroCover{min-height:390px;padding:34px 38px;justify-content:center;background:#eaf0ff url('warwatch-cover.svg') center/cover no-repeat;border:1px solid #d5def8;box-shadow:0 16px 45px #6379b51a}
+.heroCover:after{background:linear-gradient(90deg,#f7f9ffef 0%,#f4f7ffe8 38%,#f4f7ff25 100%),linear-gradient(0deg,#e8edff65,transparent 70%)}
+.heroArtwork{background:radial-gradient(circle at 78% 45%,#8175e51c,transparent 30%)}
+.heroIdentity img{width:94px;height:94px;border-radius:23px;border:2px solid #fff;box-shadow:0 8px 24px #5c70bd35}
+.heroKicker{color:#6975bd;text-shadow:none}
+.heroIdentity h2{font-style:normal;color:#26375f;text-shadow:none}
+.heroIdentity h2 span{color:#7565d8}
+.heroIdentity p{color:#5d6c91}
+.heroCover .coverDesc{color:#5b6681;text-shadow:none}
+.heroFeatureStrip{color:#596fc0}
+.heroCover .enterWarwatch{color:#fff;background:linear-gradient(100deg,#477fe0,#7965d7);border:0;box-shadow:0 8px 22px #6878d844}
+.quickActions button{background:linear-gradient(145deg,#fff,#f4f7ff);border-color:#dfe6f8;box-shadow:0 5px 16px #5169a00d}
+.quickActions button:hover{border-color:#aebdf0;box-shadow:0 10px 24px #536fc022}
+.quickActions i,.dashStat i{color:#6c70cf}
+.quickActions b,.cardTitle{color:#344363}
+.quickActions small,.cardMeta{color:#7a849c}
+.dashboardStats{background:linear-gradient(110deg,#fff,#f0f3ff);border-color:#dce4f8;box-shadow:0 5px 18px #5269a00b}
+.dashStat{border-color:#e1e7f6}.dashStat b{color:#2e3e63}.dashStat span{color:#77829a}
+.panel{background:#fff;border-color:#e0e6f5;box-shadow:0 8px 26px #536b9b0d}
+.card{background:#fff;border-color:#e0e6f5;box-shadow:0 4px 14px #5269a00c}
+.cover{background:#e8edfb}
+.progress{background:#e7ebf6}.progress i,.barTrack i{background:linear-gradient(90deg,#4b83df,#8970df)}
+.pill{background:#eeedff;color:#6255bd}.pill.watching{background:#e4f4f2;color:#268c7d}.pill.completed{background:#fff4d9;color:#9a741f}.pill.paused{background:#e5f1ff;color:#397bb7}.pill.dropped{background:#fce9ee;color:#b44f70}
+input,select,textarea{background:#fff;border-color:#d8e1f4;color:#283653}
+input::placeholder,textarea::placeholder{color:#9aa4ba}
+input:focus,select:focus,textarea:focus{outline:2px solid #8878e655;border-color:#8175d8}
+button{background:linear-gradient(110deg,#4d80dc,#7868d9);color:#fff}
+button.ghost{background:#eef2fc;color:#536187;border:1px solid #dfe6f6}
+.blue{background:linear-gradient(110deg,#3988d5,#5ba9df)}.purple{background:linear-gradient(110deg,#7162d1,#9a7be2)}
+.tabs button{background:#eef2fc;color:#596581}.tabs button.active{background:linear-gradient(110deg,#4d80dc,#7868d9)}
+.folderChip{background:#f1f3ff;border-color:#dce2f7;color:#56628c}.folderChip.active{background:#e8e7ff}
+.stat{background:#f3f5ff;border-color:#e0e5f4;color:#737e98}.stat b{color:#30436d}
+.modal{background:#fff;border-color:#dce3f3;box-shadow:0 25px 90px #263b6a33}
+.modalHero{background:linear-gradient(120deg,#e7efff,#eeebff 65%,#e5f4ff)}.modalHero p{color:#66728e}
+.close{background:#e9eef9;color:#526184}
+.overall,.season,.episodeItem,.personalReview,.noticeCard{background:#f6f8ff;border-color:#e0e6f5}
+.season summary span{color:#74809b}.seasonControls .minus{background:#e8edf8;color:#5c6885}
+.description{color:#56627d}.notice{color:#765ed1}.reviewSaved{color:#5279c7}
+.empty{border-color:#d8e1f3;color:#8290aa}.calendarDate{color:#6675ca}
+.calendarEntry{background:#f7f9ff;border-color:#e0e7f5}.calendarTag{background:#e3f5f0;color:#268c7d}
+.barTrack{background:#e6eaf5}.heart{background:#f8eafa;color:#b35b9c}.heart.on{background:#e9d8fa;color:#8242b4}
+.backdrop{background:#26365a88}
+.library{grid-template-columns:repeat(auto-fill,minmax(185px,1fr));gap:18px}
+.library .card{padding:11px;border-radius:17px}.library .cover{height:260px;border-radius:12px}
+.rail{grid-auto-columns:185px;gap:16px}.rail .cover{height:240px}
+.library .cardTitle{font-size:14px;min-height:38px}
+.card{transition:transform .18s,box-shadow .18s}.card:hover{transform:translateY(-3px);box-shadow:0 12px 24px #5269a022}
+@media(max-width:1000px){.library{grid-template-columns:repeat(auto-fill,minmax(165px,1fr))}.library .cover{height:225px}}
+@media(max-width:600px){
+header h1:before{width:42px;height:42px;border-radius:12px}
+.appNav{background:#ffffffed;border-top:1px solid #dce4f8;box-shadow:0 -8px 25px #5269a018}
+.appNav button{color:#63708e}.appNav button.active,.appNav button:hover{background:#eef0ff;border-color:#e0e3fb}.appNav button i{color:#6d72ce}
+.heroCover{min-height:355px;padding:22px 16px;background-position:58% center;background-size:auto 100%;border-radius:17px}
+.heroCover:after{background:linear-gradient(90deg,#f7f9fff2 0%,#f4f7ffdc 65%,#f4f7ff80 100%),linear-gradient(0deg,#e8edff8a,transparent 75%)}
+.heroIdentity{gap:12px}.heroIdentity img{width:67px;height:67px;border-radius:17px}
+.heroIdentity h2{font-size:clamp(38px,11vw,52px);letter-spacing:-2px}
+.heroIdentity p{font-size:9px;letter-spacing:2px}.heroKicker{font-size:8px;letter-spacing:2px}
+.heroCover .coverDesc{font-size:11px;margin-top:14px}
+.heroFeatureStrip{gap:9px 13px;font-size:8px;margin:15px 0;color:#536bb6}
+.heroCover .enterWarwatch{min-width:190px}
+.library{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.library .card{padding:8px}.library .cover{height:205px}.library .cardTitle{font-size:12px}
+.rail{grid-auto-columns:150px;gap:10px}.rail .cover{height:190px}
+.cardMeta{font-size:10px}
+}
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js"></script></head><body>
 
 <header><div><h1><span>WARWATCH</span> ✦</h1><p>Tu universo de anime y series. Sigue cada episodio. Domina tu historia.</p></div><div style="display:flex;align-items:center;gap:12px"><div class="stats"><div class="stat"><b id="countTitles">0</b>títulos</div><div class="stat"><b id="countEpisodes">0</b>vistos</div></div><button class="ghost" id="accountButton" type="button">👤 Entrar</button></div></header>
