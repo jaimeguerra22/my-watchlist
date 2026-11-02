@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000">
+<defs>
+ <radialGradient id="red"><stop stop-color="#ff1d35"/><stop offset=".55" stop-color="#a60019"/><stop offset="1" stop-color="#180309"/></radialGradient>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#080609"/><stop offset=".6" stop-color="#18050b"/><stop offset="1" stop-color="#590712"/></linearGradient>
+ <linearGradient id="type"><stop stop-color="#fff"/><stop offset=".5" stop-color="#fff"/><stop offset=".51" stop-color="#ff1835"/><stop offset="1" stop-color="#a50020"/></linearGradient>
+ <filter id="glow"><feGaussianBlur stdDeviation="16" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+ <pattern id="grain" width="90" height="90" patternUnits="userSpaceOnUse"><path d="M4 15l12-4m19 22l8-2m19 44l13-4M12 72l8-3" stroke="#ff283d" opacity=".18" stroke-width="2"/></pattern>
+</defs>
+<rect width="1600" height="1000" fill="url(#sky)"/>
+<circle cx="1320" cy="385" r="220" fill="url(#red)" opacity=".92" filter="url(#glow)"/>
+<circle cx="1320" cy="385" r="192" fill="none" stroke="#ff243c" stroke-width="5" opacity=".65"/>
+<path d="M0 690L170 560 280 650 440 520 580 690 750 550 900 690 1090 530 1210 650 1380 500 1600 680V1000H0Z" fill="#09070a"/>
+<path d="M0 760L210 640 360 735 560 625 750 780 980 630 1160 740 1400 610 1600 730V1000H0Z" fill="#13090e"/>
+<path d="M0 820Q300 740 520 820T1000 815T1600 790V1000H0Z" fill="#28060e"/>
+<path d="M0 0H1600V1000H0Z" fill="url(#grain)" opacity=".55"/>
+<!-- stylized eye emblem -->
+<path d="M105 220Q320 25 535 220Q320 420 105 220Z" fill="#18050b" stroke="#9c1027" stroke-width="10"/>
+<path d="M150 220Q320 78 490 220Q320 362 150 220Z" fill="url(#red)" stroke="#ff344a" stroke-width="6"/>
+<circle cx="320" cy="220" r="86" fill="#10070a" stroke="#ff263e" stroke-width="8"/>
+<circle cx="320" cy="220" r="24" fill="#ff1d38"/>
+<g fill="#070609"><path d="M320 134q-30 38 0 64 30-26 0-64Z"/><path d="M246 270q47 2 55-35-37-17-55 35Z"/><path d="M394 270q-47 2-55-35 37-17 55 35Z"/></g>
+<!-- silhouette -->
+<path d="M1330 590l-38-76 28-82 53-38 43 8 36 43 12 75 34 54-2 120h-220Z" fill="#050407"/>
+<path d="M1320 414l-16-46 28-50 45-17 41 30 9 49-24 46-46 12Z" fill="#050407"/>
+<path d="M1351 348l-31-38 28 8 9-30 14 28 22-34 3 35 31-15-14 36Z" fill="#050407"/>
+<path d="M1392 490l88 145-20 14-104-126" fill="#050407"/>
+<!-- torii gate -->
+<path d="M1120 890H1480M1140 860H1460M1160 860V970M1440 860V970M1100 850H1500L1470 825H1130Z" stroke="#080609" stroke-width="24" fill="none"/>
+<!-- foreground -->
+<path d="M0 920Q300 850 500 930T1000 925T1600 900V1000H0Z" fill="#050407"/>
+</svg>
