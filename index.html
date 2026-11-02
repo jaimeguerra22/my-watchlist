@@ -207,7 +207,7 @@ $('#searchBtn').addEventListener('click',searchCatalog);$('#query').addEventList
 $('#filterText').addEventListener('input',renderAll);$('#filterStatus').addEventListener('change',renderAll);$('#sort').addEventListener('change',renderAll);
 $('#exportBtn').addEventListener('click',exportBackup);$('#importBtn').addEventListener('click',()=>$('#importFile').click());$('#importFile').addEventListener('change',e=>importBackup(e.target.files[0]));
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeDetail()});
-window.addEventListener('storage',e=>{if(e.key===KEY){items=read(KEY,[]);items.forEach(normalize);renderAll()}if(e.key===ACT)activity=read(ACT,[]);if(e.key===HIS){history=read(HIS,[]);renderHistory()}});
+window.addEventListener('storage',e=>{if(e.key===KEY){items=read(KEY,[]);items.forEach(normalize);renderAll()}if(e.key===ACT)activity=read(ACT,[]);});
 renderAll();localStorage.setItem(KEY,JSON.stringify(items));
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 </script></body></html>
