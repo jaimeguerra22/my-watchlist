@@ -66,9 +66,10 @@ function adjustEpisode(id,seasonNo,delta){
  const before=s.progress,after=Math.max(0,s.total?Math.min(s.total,before+(delta>0?1:-1)):before+(delta>0?1:-1));
  if(after===before)return;
  s.progress=after;syncTotals(x);
- if(delta>0){recordActivity();if(x.status==='planned')x.status='watching';}
+ if(delta>0){recordActivity();recordEpisode(x,s.season,after);if(x.status==='planned')x.status='watching';}
+ else {const i=history.map((h,n)=>({h,n})).reverse().find(v=>String(v.h.id)===String(x.id)&&Number(v.h.season)===Number(s.season)&&Number(v.h.episode)===before);if(i){history.splice(i.n,1);localStorage.setItem(HIS,JSON.stringify(history));}}
  if(x.total>0&&x.progress>=x.total)x.status='completed';else if(x.status==='completed')x.status='watching';
- localStorage.setItem(KEY,JSON.stringify(items));renderAll();
+ localStorage.setItem(KEY,JSON.stringify(items));renderHistory();renderAll();
  if($('#modal').classList.contains('open'))openDetail(x.id);
 }
 function openDetail(id){
