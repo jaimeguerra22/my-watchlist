@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f4f7ff"><link rel="manifest" href="manifest.json"><title>WARWATCH</title><link rel="icon" type="image/svg+xml" href="icon.svg">
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f4f7ff"><link rel="manifest" href="manifest.json"><title>WARWATCH</title><link rel="icon" type="image/svg+xml" href="icon.svg">
 <style>
 :root{color-scheme:dark;--bg:#090609;--panel:#151014;--panel2:#211016;--line:#49202a;--txt:#fff5f5;--muted:#c0aeb2;--red:#ff2438;--pink:#b90024;--purple:#790018;--blue:#a51b2d;--cyan:#ff5968;--yellow:#ffbdc4}
 *{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#4a0713 0,transparent 34%),radial-gradient(ellipse at 95% 5%,#31000b 0,transparent 30%),var(--bg);color:var(--txt);font:15px Inter,system-ui,-apple-system,sans-serif;min-height:100vh}
@@ -310,6 +310,46 @@ button.ghost{background:#202e4b!important;color:#dce6ff!important;border:1px sol
  .dashboardStats{background:linear-gradient(110deg,#14213c,#171d3a)!important}
  .panel{background:linear-gradient(145deg,#141f38,#10182c)!important}
  .library .card{background:#172541!important}
+}
+
+
+/* iPhone/mobile usability fixes */
+@media(max-width:600px){
+  html{min-height:100%;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{min-height:100%;overflow-x:hidden;padding-bottom:env(safe-area-inset-bottom)}
+  .appNav{
+    height:calc(70px + env(safe-area-inset-bottom))!important;
+    padding:6px 5px calc(6px + env(safe-area-inset-bottom))!important;
+    grid-template-rows:minmax(0,1fr)!important;
+    align-content:stretch;
+    box-sizing:border-box;
+    -webkit-backdrop-filter:blur(22px);
+  }
+  .appNav button{
+    min-width:0!important;
+    min-height:0!important;
+    width:100%;
+    overflow:hidden;
+    touch-action:manipulation;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .appNav button span{
+    display:block;
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:clip;
+    font-size:clamp(7px,2.15vw,9px);
+    letter-spacing:-.25px;
+  }
+  .wrap{padding-bottom:calc(112px + env(safe-area-inset-bottom))!important}
+  button,[data-open]{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  input,select,textarea,button{font-size:16px}
+  .backdrop{align-items:flex-start;overflow-y:auto;-webkit-overflow-scrolling:touch;padding: max(12px,env(safe-area-inset-top)) 12px max(18px,env(safe-area-inset-bottom))}
+  .modal{width:100%;max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 24px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .modalHero{grid-template-columns:76px minmax(0,1fr)}
+  .modalHero img{height:112px}
+  .library .cover{height:clamp(145px,48vw,205px)}
+  .heroCover{min-height:clamp(355px,calc(100svh - 260px),520px)}
 }
 
 </style><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="./supabase-config.js"></script></head><body>
