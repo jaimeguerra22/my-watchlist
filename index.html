@@ -588,6 +588,7 @@ const wwOriginalSetItem=Storage.prototype.setItem;
 Storage.prototype.setItem=function(key,value){wwOriginalSetItem.call(this,key,value);if(this===localStorage&&wwKeys.includes(String(key))&&!wwSuppressStorage)wwScheduleSync();};
 document.addEventListener('DOMContentLoaded',()=>{});
 wwInitAuth().catch(e=>console.error('WARWATCH auth init:',e));
-\nrenderAll();localStorage.setItem(KEY,JSON.stringify(items));
+
+renderAll();localStorage.setItem(KEY,JSON.stringify(items));
 if('serviceWorker'in navigator)window.addEventListener('load',()=>navigator.serviceWorker.register('./sw.js'));
 </script></body></html>
