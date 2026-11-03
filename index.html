@@ -374,7 +374,8 @@ button.ghost{background:#202e4b!important;color:#dce6ff!important;border:1px sol
 <div id="authBackdrop" class="backdrop" style="z-index:120;display:none"><section class="modal" style="width:min(440px,100%);padding:24px"><button class="close" id="authClose" type="button">✕</button><span class="eyebrow">WARWATCH ID</span><h2 style="margin:10px 0">Tu universo, en todas partes</h2><p class="muted">Entra con tu cuenta para sincronizar tu biblioteca. También puedes seguir como invitado.</p><form id="authForm" style="display:grid;gap:11px;margin-top:18px"><label class="muted">Correo electrónico<input id="authEmail" type="email" autocomplete="email" required style="display:block;width:100%;margin-top:6px"></label><label class="muted">Contraseña<input id="authPassword" type="password" autocomplete="current-password" minlength="8" required style="display:block;width:100%;margin-top:6px"></label><button id="authSubmit" type="submit">Iniciar sesión</button><button class="ghost" id="authToggle" type="button">¿No tienes cuenta? Crear cuenta</button></form><p id="authMessage" class="notice" aria-live="polite"></p><button class="ghost" id="guestContinue" type="button" style="width:100%;margin-top:8px">Continuar como invitado</button></section></div>
 <div id="modal" class="backdrop"><section class="modal" role="dialog" aria-modal="true"><div id="modalContent"></div></section></div>
 <script>
-'use strict';\n
+'use strict';
+
 const $=s=>document.querySelector(s), KEY='mw-items', ACT='mw-activity', FOLD='mw-folders', HIS='mw-history';
 let items=read(KEY,[]), activity=read(ACT,[]), folders=read(FOLD,[]), history=read(HIS,[]), activeFolder='';
 function read(k,fallback){try{const v=JSON.parse(localStorage.getItem(k));return Array.isArray(v)?v:fallback}catch{return fallback}}
